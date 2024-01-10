@@ -41,10 +41,10 @@ public class CommentServiceImpl implements CommentService {
 				
 				cdao.save(mappedComment);
 				return "Comment added successfully";
-			}catch(Exception e) {
+			     }  catch(Exception e) {
 				return "Something went wrong";
-			}
-		}
+			 }
+		  }
 		else if(blog == null){
 			return "Blog not found";
 		}

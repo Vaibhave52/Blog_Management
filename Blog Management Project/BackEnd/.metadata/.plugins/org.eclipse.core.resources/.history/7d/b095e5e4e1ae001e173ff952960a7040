@@ -1,0 +1,19 @@
+package com.cms.security;
+
+import java.net.http.HttpRequest;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+
+@EnableWebSecurity
+@Configuration
+public class SecurityConfig {
+
+	@Bean
+	public SecurityFilterChain authorize(HttpSecurity http) throws Exception
+	{
+		return http.build();
+	}
+}

@@ -1,0 +1,22 @@
+package com.cms.security;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
+import com.cms.dao.UserDao;
+import com.cms.models.User;
+
+public class LoadUserDetailsService implements UserDetailsService {
+@Autowired
+private UserDao udao;
+	
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		// TODO Auto-generated method stub
+		User user= udao.findByEmail(username).orElse( ()-> new UsernameNotFoundException("User not Found"));
+	   return new CustomUserDetail(user);
+	}
+
+}
