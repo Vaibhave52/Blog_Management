@@ -1,14 +1,13 @@
-body{
+.header{
     margin: 0;
     padding: 0;
-    height: 100vh;
-    background-image: url('../images/about-background.png');
+    height: 30vh;
+    background-color: #265073;
     background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
+    background-size: top;
 }
 
-.contact .contact-menu{
+.body .write-blog-menu{
     position: absolute;
     top: 2rem;
     right: 2rem;
@@ -17,22 +16,23 @@ body{
     transition: all 0.4s;
 }
 
-.contact .contact-menu i{
+.body .write-blog-menu i{
     color: white;
     font-size: 2rem;
     cursor: pointer;
     transition: all 0.4s;
 }
 
-.contact .contact-menu:hover{
+.body .write-blog-menu:hover{
     background-color: white
 }
 
-.contact .contact-menu:hover i{
+.body .write-blog-menu:hover i{
     color: black;
 }
 
-.contact .header h1{
+
+.body .header h1{
     padding-top: 4rem;
     color: white;
     font-size: 4rem;
@@ -45,117 +45,59 @@ body{
 
 
 
-.contact .top-section{
+.page{
+    background-color: #9AD0C2;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
     gap: 2rem;
-    padding: 2rem 10rem;
+    padding: 2rem 0 2rem 0;
 }
 
-.contact .top-section .map{
+.page .box{
+    width: 70%;
+}
+
+.page .box input,
+.page .box textarea{
     width: 100%;
-    flex: 1 1 40%;
-    padding: 2rem;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 0.5rem;
-    backdrop-filter: blur(0.4rem);
-}
-
-.contact .top-section .get-in-touch{
-    flex: 1 1 40%;
-    padding: 2rem;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 0.5rem;
-    backdrop-filter: blur(0.4rem);
-}
-
-.contact .top-section .get-in-touch h3{
+    border-radius: 1rem;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 0 0 0 1rem;
     color: white;
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: 700;
-    padding-bottom: 1rem;
+    font-size: 1.2rem;
 }
 
-.contact .top-section .get-in-touch .box{
-    width: 100%;
-    margin: 0.4rem 0;
-    border-radius: 0.5rem;
-    background-color: rgba(0, 0, 0, 0.3);
-    padding: 0.5rem;
-    font-size: 1rem;
-    color: white;
-    text-transform: none;
+.page .box input::placeholder,
+.page .box textarea::placeholder{
+    color: rgba(255,255,255, 0.5);
 }
 
-.contact .top-section .get-in-touch .box::placeholder{
-    color: rgba(255, 255, 255, 0.5);
+.page .box input{
+    height: 3rem;
 }
 
-.contact .top-section .get-in-touch textarea{
-    height: 10rem;
+.page .box textarea{
+    height: 30rem;
     resize: none;
 }
 
-.contact .top-section .get-in-touch .btn{
-    width: 100%;
-    margin-top: 1.5rem;
-    transition: 0.3s;
+.page .button{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
 }
 
-.contact .top-section .get-in-touch .btn:hover{
+.page .button .btn{
+    padding: 0.5rem;
+    width: 30%;
+    transition: all 0.2s;
+}
+
+.page .button .btn:hover{
     transform: scale(0.9);
 }
 
-
-
-
-.contact .bottom-section{
-    margin: 3rem 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 20rem);
-    align-items: flex-start;
-    justify-content: center;
-    gap: 1.5rem;
-}
-
-.contact .bottom-section .box{
-    padding: 2rem 1rem;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 0.5rem;
-    backdrop-filter: blur(0.4rem);
-    text-align: center;
-    height: 15rem;
-}
-
-.contact .bottom-section .box i{
-    height: 3rem;
-    width: 4rem;
-    line-height: 3rem;
-    font-size: 1.5rem;
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 0.5rem;
-    color: white;
-    margin-bottom: 1rem;
-}
-
-.contact .bottom-section .box h3{
-    padding: .5rem 0;
-    font-size: 1.5rem;
-    color: white;
-}
-
-.contact .bottom-section .box a{
-    display: block;
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.5);
-    text-transform: none;
-    text-decoration: none;
-}
-
-.contact .bottom-section .box a:hover{
-    color: white;
-}
 
 
 

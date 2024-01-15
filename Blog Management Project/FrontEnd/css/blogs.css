@@ -8,17 +8,27 @@
 }
 
 .cover .blog-menu{
-    display: flex;
-    height: 15%;
-    flex-direction: row-reverse;
-    padding: 2rem 2rem;
-    color: white;
-    font-size: 2rem;
-    padding-bottom: 0.5rem;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.4s;
 }
 
 .cover .blog-menu i{
+    color: white;
+    font-size: 2rem;
     cursor: pointer;
+    transition: all 0.4s;
+}
+
+.cover .blog-menu:hover{
+    background-color: white
+}
+
+.cover .blog-menu:hover i{
+    color: black;
 }
 
 .cover .blog-title{
@@ -98,6 +108,7 @@
     text-align: center;
     transition: 0.4s;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .footer .footer-container .box .share a:hover{
@@ -110,6 +121,7 @@
     color: #fff;
     padding: 0.4rem 0;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .footer .footer-container .box .links i{
@@ -155,10 +167,72 @@
 
 
 
+
+#toast {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    padding: 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 0.5rem;
+    display: none;
+    z-index: 10;
+}
+
+.show {
+    display: block;
+    animation: fadeInOut 3s ease-out;
+}
+  
+@keyframes fadeInOut {
+    0%, 100% {
+    opacity: 0;
+    }
+    25%, 75% {
+    opacity: 1;
+    }
+}
+
+
+
+
 .offcanvas{
     background-color: #9AD0C2;
 }
 
 .offcanvas .offcanvas-body .btn{
     width: 60%;
+}
+
+
+
+
+.icons{
+    position: absolute;
+    top: 16rem;
+    left: 2rem;
+    padding: 0.5rem;
+    display: flex;
+    gap: 0.2rem;
+}
+
+.icons i{
+    color: white;
+    height: 4rem;
+    width: 4rem;
+    line-height: 4rem;
+    border-radius: .5rem;
+    font-size: 2rem;
+    margin-left: .2rem;
+    background: #265073;
+    text-align: center;
+    transition: 0.4s;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.icons i:hover{
+    background: white;
+    color: #265073;
 }

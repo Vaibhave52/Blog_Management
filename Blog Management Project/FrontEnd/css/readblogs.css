@@ -1,77 +1,22 @@
-.dashboard{
-    background-color: #f7e7ce;
+
+.header{
+    margin: 0;
+    padding: 0;
+    height: 30vh;
+    background-color: #122b40;
+    background-position: center;
+    background-size: top;
 }
 
-
-
-
-.dashboard .navbar{
-    padding-top: 2rem;
-    display: flex;
-    justify-content: center;
-    font-family: 'Arial', sans-serif;
-}
-
-.dashboard .navbar nav{
-    width: 60%;
-    border-bottom: 0.05rem solid rgb(154, 154, 154);
-}
-
-.dashboard .navbar nav ul{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    list-style: none;
-}
-
-.dashboard .navbar nav ul li{
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.dashboard .navbar nav ul li a{
-    text-decoration: none;
-    color: #122b40;
+.body .header h1{
+    padding-top: 4rem;
+    color: white;
+    font-size: 4rem;
     font-weight: 700;
-    font-size: 1.4rem;
-    display: inline-block;
-    padding: 0.3rem 1rem;
-    border-radius: 2rem;
-    transition: all 0.4s;
+    text-shadow: 0.2rem 0.2rem 0.4rem rgb(27, 227, 204);
+    text-align: center;
+    padding-bottom: 2rem;
 }
-
-.dashboard .navbar nav ul li:hover a{
-    background-color: #122b40;
-    color: white;
-}
-
-
-
-
-.power-off{
-    position: absolute;
-    top: 1.5rem;
-    right: 2rem;
-    padding: 0.8rem;
-    border-radius: 0.8rem;
-    transition: all 0.4s;
-}
-
-.power-off i{
-    color: #122b40;
-    font-size: 2rem;
-    cursor: pointer;
-    transition: all 0.4s;
-}
-
-.power-off:hover{
-    background-color: #122b40;
-}
-
-.power-off:hover i{
-    color: white;
-}
-
 
 
 
@@ -142,6 +87,31 @@
 }
 
 
+
+
+.body .home{
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.4s;
+}
+
+.body .home i{
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+.body .home:hover{
+    background-color: white
+}
+
+.body .home:hover i{
+    color: black;
+}
 
 
 
