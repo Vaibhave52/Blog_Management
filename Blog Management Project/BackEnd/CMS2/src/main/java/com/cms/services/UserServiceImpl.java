@@ -1,10 +1,11 @@
 package com.cms.services;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.cms.dao.UserDao;
+import com.cms.dto.PasswordsDto;
 import com.cms.dto.ProfileDto;
 import com.cms.models.Role;
 import com.cms.models.User;
@@ -16,19 +17,17 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDao udao;
 	
-//	@Autowired
-//	private utilities u;
+	@Autowired
+	private PasswordEncoder pencoder;
 
 	@Override
 	public String registerUser(User user) {
 		
 		try {
-		//	String salt = u.generateSaltValue(6);
-		//	user.setSalt(salt);
+		
 			user.setRole(Role.ROLE_USER);
 			user.setImage("https://cdn-icons-png.flaticon.com/128/3135/3135715.png");
-			//String password = user.getPassword();
-			//user.setPassword(u.encryptPassword(password, salt));
+			
 			udao.save(user);
 			return "User registered successfully";
 		}catch(Exception e){
@@ -102,5 +101,49 @@ public class UserServiceImpl implements UserService {
 		}catch(Exception e) {
 			return e.toString();
 		}
+	}
+	
+	
+	private boolean authenticateUser(String pass1, String pass2) {
+		return pencoder.matches(pass1, pass2);
+	}
+
+	
+	public String updatePassword(PasswordsDto passwords) {
+		
+		long userId = passwords.getUserId();
+		String oldPass = passwords.getOldPass();
+		String newPass = passwords.getNewPass();
+		
+		try {
+			User u = udao.findById(userId).orElse(null);
+			if(u != null) {
+				String curPass = u.getPassword();
+				if(authenticateUser(oldPass, curPass)) {
+					u.setPassword(pencoder.encode(newPass));
+					udao.save(u);
+					return "Password updated.";
+				}
+				else {
+					return "Old Password is incorrect.";
+				}
+			}else {
+				return "User not found";
+			}
+		}catch(Exception e) {
+			return e.toString();
+		}
+	}
+
+	
+
+
+	public boolean verifyToken(User user) {
+		
+		User u = udao.findById(user.getId()).orElse(null);
+		if(u != null) {
+			return true;
+		}
+		return false;
 	}
 }

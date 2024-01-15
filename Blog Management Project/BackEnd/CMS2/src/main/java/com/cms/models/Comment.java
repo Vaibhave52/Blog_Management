@@ -33,68 +33,46 @@ public class Comment {
 	@JoinColumn(name = "user_id")
 	private User user;
 	
-	
-
 	public Long getId() {
 		return id;
 	}
 
-
-
-	public void setId(Long id) {
+    public void setId(Long id) {
 		this.id = id;
 	}
 
-
-
-	public String getComment() {
+    public String getComment() {
 		return comment;
 	}
 
-
-
-	public void setComment(String comment) {
+    public void setComment(String comment) {
 		this.comment = comment;
 	}
 
-
-
-	public Blog getBlog() {
+    public Blog getBlog() {
 		return blog;
 	}
-
-
-
-	public void setBlog(Blog blog) {
+    
+    public void setBlog(Blog blog) {
 		this.blog = blog;
 	}
 
-
-
-	public User getUser() {
+    public User getUser() {
 		return user;
 	}
 
-
-
-	public void setUser(User user) {
+    public void setUser(User user) {
 		this.user = user;
 	}
 
-
-
-	public Comment(String comment, Blog blog, User user) {
+    public Comment(String comment, Blog blog, User user) {
 		super();
 		this.comment = comment;
 		this.blog = blog;
 		this.user = user;
 	}
 
-
-
-	public Comment() {
+   public Comment() {
 		super();
 	}
-	
-	
 }

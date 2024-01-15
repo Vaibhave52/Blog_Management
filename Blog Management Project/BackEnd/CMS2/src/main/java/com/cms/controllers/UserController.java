@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cms.dto.PasswordsDto;
 import com.cms.dto.ProfileDto;
 import com.cms.models.User;
 import com.cms.services.UserService;
@@ -43,5 +44,18 @@ public class UserController {
 		
 		return userv.updateEmail(user);
 	}
+	
+	@PutMapping("/updatepassword")
+	public String editPassword(@RequestBody PasswordsDto passwords) {
+		
+		return userv.updatePassword(passwords);
+	}
+	
+	@PostMapping("/verify")
+	public boolean verify(@RequestBody User user) {
+		
+		return userv.verifyToken(user);
+	}
+	
 
 }

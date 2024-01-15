@@ -1,6 +1,7 @@
 package com.cms.services;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
@@ -53,7 +54,37 @@ public class BlogServiceImpl implements BlogService {
 		
 		return bdao.findAll();
 	}
-	
-	
-	
-}
+
+	@Override
+	public List<BlogDto> getTopBlogs() {
+		List<Blog> blogs =  bdao.findAll();
+		List<BlogDto> blogDs = new ArrayList<>();
+		
+		for(Blog b : blogs) {
+			BlogDto blogDto = mapper.map(b, BlogDto.class);
+			blogDs.add(blogDto);
+		}
+		
+		List<BlogDto> topBlogs = new ArrayList<>();
+
+		for (BlogDto blog : blogDs) {
+		    if ("top".equals(blog.getCategory())) {
+		        topBlogs.add(blog);
+		    }
+		}
+		
+		return topBlogs;
+	}
+
+	@Override
+	public BlogDto getBlogById(long id) {
+		Blog b = bdao.findById(id).orElse(null);
+		if(b != null) {
+			BlogDto bdto = mapper.map(b, BlogDto.class);
+			return bdto;
+		}else {
+			return null;
+		}
+	}
+	}
+
